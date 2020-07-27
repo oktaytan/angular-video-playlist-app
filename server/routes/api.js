@@ -7,7 +7,7 @@ const db = 'mongodb://localhost:27017/videolistdb';
 mongoose.Promise = global.Promise;
 mongoose.connect(
 	db,
-	{ useNewUrlParser: true, useUnifiedTopology: true },
+	{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false },
 	(err) => {
 		if (err) {
 			console.error('Error : ' + err);

@@ -1,14 +1,28 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Video } from "./video";
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpParams } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class VideoService {
-  private _getUrl = 'http://localhost:3000/api/videos';
+  private _url = "http://localhost:3000/api/videos/";
+
   constructor(private _http: HttpClient) {}
 
   getVideos() {
-    return this._http.get<any>(this._getUrl);
+    return this._http.get<any>(this._url);
+  }
+
+  addVideo(video: Video) {
+    return this._http.post<any>(this._url, video);
+  }
+
+  updateVideo(video: Video) {
+    return this._http.put<any>(this._url + video._id, video);
+  }
+
+  deleteVideo(video: Video) {
+    return this._http.delete<any>(this._url + video._id);
   }
 }
