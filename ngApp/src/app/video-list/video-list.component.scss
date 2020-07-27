@@ -1,0 +1,19 @@
+.video_list {
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  li {
+    cursor: pointer;
+    transition: background-color 0.25s ease-out;
+
+    &:hover {
+      background-color: rgb(243, 243, 243);
+    }
+
+    a {
+      color: #529284;
+      text-align: left;
+    }
+  }
+}
